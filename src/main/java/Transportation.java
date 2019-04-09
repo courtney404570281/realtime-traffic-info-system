@@ -1,5 +1,8 @@
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.ReplaceOneModel;
 import com.mongodb.client.model.ReplaceOptions;
@@ -27,12 +30,16 @@ public abstract class Transportation implements Runnable{
         int topicLength; // 此topic取得的總資料量
 
         for (int i = 0; i < urls.size(); i++) { // 每次一個topic的資料
+            final String MONGO_HOST = "mongodb://192.168.1.237:27017";
+            final String MONGO_HOST_AUTH = "mongodb://test:test@192.168.1.181:27017/?authSource=test";
+            final String DB = "test";
             int responseLength = FETCH_ALLOW; // 每次response得到的json array實際大小
             int loopCount = 0;
             topicLength = 0;
 
             String collection = collections.get(i);
-            MongoCollection<Document> mongoCollection = Mongo.getCollection(collection);
+            MongoClient mongoClient = MongoClients.create(MONGO_HOST_AUTH);
+            MongoCollection<Document> mongoCollection = mongoClient.getDatabase(DB).getCollection(collection);
 
             while (responseLength == FETCH_ALLOW) { // read_data
                 responseLength = 0;
@@ -42,7 +49,7 @@ public abstract class Transportation implements Runnable{
 
                 JsonArray ja;
                 try {
-                    System.out.print("Getting data of " + collection + "... ");
+                    System.out.print("Getting data of " + collection + " from PTX... ");
                     ja = Ptx.getResponseJsonFrom(apiUrl);
                     System.out.println(ja.size());
                 } catch (IOException | SignatureException e) {
@@ -55,10 +62,9 @@ public abstract class Transportation implements Runnable{
 
                 for (JsonElement je : ja) {
                     Document document = Document.parse(je.toString());
-                    String docId = getIdOf(document, collection);
-                    document.append("_id", docId);
+                    String id = getIdOf(document, collection);
+                    document.append("_id", id);
 
-                    // test
                     Date updateTime = null;
                     try {
                         updateTime = parseToDate(document.get("UpdateTime").toString());
@@ -67,8 +73,18 @@ public abstract class Transportation implements Runnable{
                     }
                     document.put("UpdateTime", updateTime);
 
+                    if(collection.equals("icb_stop")) {
+                        JsonObject stopPosition = je.getAsJsonObject().get("StopPosition").getAsJsonObject();
+                        double lat = stopPosition.get("PositionLat").getAsDouble();
+                        double lon = stopPosition.get("PositionLon").getAsDouble();
+                        String json = "{type:\"Point\",coordinates:["+lat+","+lon+"]}";
+                        Document embeddedDoc = Document.parse(json);
+                        document.remove("StopPosition");
+                        document.append("StopPosition", embeddedDoc);
+                    }
+
                     ReplaceOneModel<Document> replaceOneModel = new ReplaceOneModel<>(
-                            eq("_id", docId),
+                            eq("_id", id),
                             document,
                             replaceOptions);
                     replaceOneModels.add(replaceOneModel);
@@ -81,6 +97,7 @@ public abstract class Transportation implements Runnable{
             }
             System.out.println(collection + ": " + topicLength + " documents upserted.");
             threadLength += topicLength;
+            mongoClient.close();
         }
     }
 

@@ -17,6 +17,9 @@ class FixedAndDaily extends Transportation {
             // 公路客運路線資料
             urls.add("http://ptx.transportdata.tw/MOTC/v2/Bus/Route/InterCity?$format=JSON&$top=" + FETCH_ALLOW);
             collections.add("icb_route");
+            // 公路客運路線資料
+            urls.add("http://ptx.transportdata.tw/MOTC/v2/Bus/Stop/InterCity?$format=JSON&$top=" + FETCH_ALLOW);
+            collections.add("icb_stop");
         }
         /* TODO
         if(cmd.hasOption("d")){
@@ -36,6 +39,8 @@ class FixedAndDaily extends Transportation {
                 return document.getString("SubRouteID");
             case "icb_route":
                 return document.getString("RouteID");
+            case "icb_stop":
+                return document.getString("StopID");
             default:
                 return "Unexpected";
         }

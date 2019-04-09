@@ -15,10 +15,10 @@ import java.util.zip.ZipException;
 class Ptx {
 
     static JsonArray getResponseJsonFrom(String ApiUrl) throws IOException, SignatureException {
-        String APPID = "9fa47244010944c8a8a21302042c08c8"; // 基礎加值
-        String APPKey = "h0I2HuqbohVvSAHLbYUoog7pFVQ"; // 基礎加值
+        final String APPID = "9fa47244010944c8a8a21302042c08c8"; // 基礎加值
+        final String APPKEY = "h0I2HuqbohVvSAHLbYUoog7pFVQ"; // 基礎加值
 //        String APPID = "475dc2d3707345f181d6410031939d7b"; // 基礎資料
-//        String APPKey = "jqy3ACea4WZBpGrxBp9Nk8uitmI"; // 基礎資料
+//        String APPKEY = "jqy3ACea4WZBpGrxBp9Nk8uitmI"; // 基礎資料
 
         // 取得當下的UTC時間，Java8有提供時間格式DateTimeFormatter.RFC_1123_DATE_TIME
         // 但是格式與C#有一點不同，所以只能自行定義
@@ -26,7 +26,7 @@ class Ptx {
         String SignDate = "x-date: " + xdate;
 
         // 取得加密簽章
-        String Signature = HMAC_SHA1.Signature(SignDate, APPKey);
+        String Signature = HMAC_SHA1.Signature(SignDate, APPKEY);
         String sAuth = "hmac username=\"" + APPID +
                 "\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"" + Signature + "\"";
 //        System.out.println("Signature :" + Signature);

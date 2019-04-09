@@ -9,12 +9,12 @@ import java.util.List;
 
 class Mongo {
 
-    final static private String MONGO_HOST = "mongodb://192.168.1.237:27017";
-    final static private String DB = "test";
-
     static MongoCollection<Document> getCollection(String collection){
-//        System.out.println("connecting to ["+DB+"] "+"["+collection+"]");
-        MongoClient mongoClient = MongoClients.create(MONGO_HOST);
+        final String MONGO_HOST = "mongodb://192.168.1.237:27017";
+        final String MONGO_HOST_AUTH = "mongodb://test:test@192.168.1.181:27017/?authSource=test";
+        final String DB = "test";
+
+        MongoClient mongoClient = MongoClients.create(MONGO_HOST_AUTH);
         MongoDatabase mdb = mongoClient.getDatabase(DB);
         return mdb.getCollection(collection);
     }
