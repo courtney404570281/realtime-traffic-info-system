@@ -15,7 +15,7 @@ public class Ptx2MongoSingleThread {
 
     public static void main(String[] args) throws InterruptedException, IOException, SignatureException {
 
-        final String mongoHost = "mongodb://192.168.1.237:27017";
+        final String mongoHost = "mongodb://192.168.181:27017";
         final int fetch_allow = 5000;
         final String db = "test";
         int numDocAdded = 0;
