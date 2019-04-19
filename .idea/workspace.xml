@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d19bdf4a-54f6-4e84-8223-155abbc4394f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ptx2MongoSingleThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ptx2MongoSingleThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Ptx2MongoSingleThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Ptx2MongoSingleThread.class" afterDir="false" />
-    </list>
+    <list default="true" id="d19bdf4a-54f6-4e84-8223-155abbc4394f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,8 +80,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -121,6 +115,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -184,11 +180,12 @@
       <workItem from="1555392952684" duration="878000" />
       <workItem from="1555464533067" duration="1753000" />
       <workItem from="1555550629238" duration="1057000" />
+      <workItem from="1555654867944" duration="1216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4862000" />
+    <option name="totallyTimeSpent" value="6078000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -202,7 +199,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26171243" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2657512" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
