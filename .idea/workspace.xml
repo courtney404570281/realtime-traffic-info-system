@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d19bdf4a-54f6-4e84-8223-155abbc4394f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d19bdf4a-54f6-4e84-8223-155abbc4394f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,7 +70,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="777" />
@@ -187,12 +185,12 @@
       <workItem from="1555982544083" duration="326000" />
       <workItem from="1555998011909" duration="1350000" />
       <workItem from="1556069736812" duration="974000" />
-      <workItem from="1556159345269" duration="535000" />
+      <workItem from="1556159345269" duration="536000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9633000" />
+    <option name="totallyTimeSpent" value="9634000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -204,7 +202,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="777" extended-state="1" />
+    <frame x="0" y="23" width="1280" height="777" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28594506" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -215,7 +213,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.42481753" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42481753" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
